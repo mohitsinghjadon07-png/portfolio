@@ -9,6 +9,7 @@ import Counter from '../../components/Counter/Counter'
 import Reveal from '../../components/Reveal/Reveal'
 import SectionHeading from '../../components/SectionHeading/SectionHeading'
 import ProjectCard from '../../components/ProjectCard/ProjectCard'
+import ScrollHUD from '../../components/ScrollHUD/ScrollHUD'
 import { roles, stats, projects, skills, focus, site } from '../../data/site'
 
 const container = { hidden: {}, show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } } }
@@ -136,6 +137,7 @@ export default function Home() {
           </div>
         </Reveal>
       </section>
+      <ScrollHUD />
     </PageWrap>
   )
 }
