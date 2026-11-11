@@ -254,131 +254,183 @@ body::before {
  .intro-screen__desc br { display:none; }
 }
 
-/* PIXEL CYBER-ARCADE DESIGN */
+
+/* ==========================================
+   RETRO PIXEL MODE — MOHIT PORTFOLIO
+========================================== */
 
 :root {
-  --pixel-grid: rgba(197,245,138,.055);
+  --pixel-green: #b9e88a;
+  --pixel-bright: #d8ffad;
+  --pixel-dark: #080d09;
+  --pixel-grid: rgba(185, 232, 138, 0.17);
 }
 
-html {
-  scrollbar-color: #9acb70 #080d09;
-  scrollbar-width: thin;
-}
-
+/* Full page pixel texture */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: 1;
+  z-index: 3;
   pointer-events: none;
-  opacity: .34;
+
   background-image:
-    linear-gradient(var(--pixel-grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--pixel-grid) 1px, transparent 1px);
-  background-size: 28px 28px;
-  mask-image: linear-gradient(to bottom, #000, transparent 88%);
+    linear-gradient(
+      var(--pixel-grid) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      var(--pixel-grid) 1px,
+      transparent 1px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 3px,
+      rgba(185,232,138,0.025) 4px
+    );
+
+  background-size:
+    16px 16px,
+    16px 16px,
+    100% 4px;
+
+  opacity: 0.48;
+  mix-blend-mode: screen;
 }
 
-.hero__name {
-  text-shadow: 4px 4px 0 rgba(119,159,84,.12),
-               0 0 38px rgba(185,232,138,.09);
+/* Pixel-inspired scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--pixel-green) var(--pixel-dark);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--pixel-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--pixel-green);
+  border: 2px solid var(--pixel-dark);
+}
+
+/* Sharp arcade-style surfaces */
+.glass,
+.pcard,
+.skill,
+.tile,
+.intro__focus,
+.cta,
+.note,
+.edu,
+.rsec,
+.resume__side {
+  border-radius: 4px !important;
+  border: 1px solid rgba(185,232,138,0.32);
+  box-shadow:
+    4px 4px 0 rgba(185,232,138,0.13),
+    0 18px 45px -30px #000;
+}
+
+/* Buttons */
+.btn {
+  border-radius: 2px !important;
+  font-family: 'Space Grotesk', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  box-shadow: 4px 4px 0 rgba(185,232,138,0.2);
+}
+
+.btn:hover {
+  transform: translate(-3px,-3px);
+  box-shadow: 7px 7px 0 rgba(185,232,138,0.25);
+}
+
+/* Pixel-style tags */
+.chips li {
+  border-radius: 2px;
+  border: 1px solid rgba(185,232,138,0.38);
+  font-family: 'Space Grotesk', monospace;
+}
+
+/* Navigation */
+.brand__mark,
+.nav__link,
+.nav__pill,
+.socials a {
+  border-radius: 3px !important;
+}
+
+/* Project cards */
+.pcard {
+  overflow: hidden;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.pcard:hover {
+  transform: translate(-3px,-3px);
+  border-color: var(--pixel-bright);
+  box-shadow: 8px 8px 0 rgba(185,232,138,0.2);
+}
+
+/* Headings */
+.hero__name,
+.page-head h1 {
+  text-shadow: 4px 4px 0 rgba(185,232,138,0.15);
 }
 
 .hero__role,
 .pcard__tag,
 .stat span {
   font-family: 'Space Grotesk', monospace;
-  letter-spacing: .055em;
+  letter-spacing: 0.06em;
 }
 
-.glass,
-.pcard,
-.skill,
-.intro__focus,
-.cta,
-.note {
-  border-radius: 5px !important;
-  border: 1px solid rgba(185,232,138,.24);
-  box-shadow: 5px 5px 0 rgba(104,143,76,.10),
-              0 22px 65px -42px #000;
-}
-
-.btn {
-  border-radius: 3px;
-  text-transform: uppercase;
-  letter-spacing: .075em;
-  font-family: 'Space Grotesk', monospace;
-  font-size: .78rem;
-  box-shadow: 4px 4px 0 rgba(185,232,138,.16);
-}
-
-.btn:hover {
-  transform: translate(-2px,-2px);
-}
-
-.chips li {
-  border-radius: 2px;
-  font-family: 'Space Grotesk', monospace;
-}
-
-.brand__mark {
-  border-radius: 3px;
-}
-
-.nav__link,
-.nav__pill {
-  border-radius: 3px;
-}
-
-.socials a {
-  border-radius: 4px;
-}
-
-.pcard {
-  position: relative;
-  overflow: hidden;
-}
-
-.pcard::after,
-.skill::after,
-.intro__focus::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: .16;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent 0 5px,
-    rgba(197,245,138,.08) 5px 6px
-  );
-}
-
-.pcard:hover,
-.skill:hover {
-  transform: translateY(-5px);
-  border-color: rgba(197,245,138,.65);
-  box-shadow: 7px 7px 0 rgba(185,232,138,.15),
-              0 28px 70px -42px rgba(185,232,138,.38);
-}
-
-.page-head h1 {
-  text-shadow: 5px 5px 0 rgba(185,232,138,.12);
+/* Neon pixel highlights */
+.hero__role,
+.skill > svg,
+.tile__icon,
+.edu > svg {
+  color: var(--pixel-green);
 }
 
 .scroll-progress {
   height: 4px;
-  box-shadow: 0 0 12px rgba(185,232,138,.45);
+  box-shadow: 0 0 14px var(--pixel-green);
 }
 
-@media(max-width:700px) {
+/* Pixel focus outline */
+:focus-visible {
+  outline: 2px dashed var(--pixel-bright);
+  outline-offset: 5px;
+}
+
+/* Mobile */
+@media(max-width: 700px) {
   body::after {
-    background-size: 22px 22px;
-    opacity: .24;
+    background-size:
+      13px 13px,
+      13px 13px,
+      100% 4px;
+    opacity: 0.35;
   }
 }
 
-@media(prefers-reduced-motion:reduce) {
+/* Accessibility */
+@media(prefers-reduced-motion: reduce) {
+  body::after {
+    opacity: 0.2;
+  }
+}
+
   .reveal-zoom {
     transform: none !important;
   }
