@@ -1,7 +1,13 @@
 
 import { motion } from 'framer-motion'
 
-export default function Reveal({ children, delay = 0, y = 34, className = '', as = 'div' }) {
+export default function Reveal({
+  children,
+  delay = 0,
+  y = 45,
+  className = '',
+  as = 'div'
+}) {
   const Tag = motion[as] || motion.div
 
   return (
@@ -10,9 +16,9 @@ export default function Reveal({ children, delay = 0, y = 34, className = '', as
       initial={{
         opacity: 0,
         y,
-        scale: 0.88,
-        rotateX: 5,
-        filter: 'blur(7px)'
+        scale: 0.78,
+        rotateX: 7,
+        filter: 'blur(5px)'
       }}
       whileInView={{
         opacity: 1,
@@ -21,15 +27,18 @@ export default function Reveal({ children, delay = 0, y = 34, className = '', as
         rotateX: 0,
         filter: 'blur(0px)'
       }}
-      viewport={{ once: true, margin: '-8% 0px -8% 0px' }}
+      viewport={{
+        once: true,
+        amount: 0.12
+      }}
       transition={{
-        duration: 0.82,
+        duration: 0.9,
         delay,
         ease: [0.16, 1, 0.3, 1]
       }}
       style={{
-        transformOrigin: '50% 50%',
-        willChange: 'transform, opacity, filter'
+        transformOrigin: 'center center',
+        willChange: 'transform, opacity'
       }}
     >
       {children}
