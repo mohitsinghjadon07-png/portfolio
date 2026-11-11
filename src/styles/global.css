@@ -253,3 +253,133 @@ body::before {
  .intro-screen__content h1 { font-size:clamp(4rem,18vw,6.5rem); }
  .intro-screen__desc br { display:none; }
 }
+
+/* PIXEL CYBER-ARCADE DESIGN */
+
+:root {
+  --pixel-grid: rgba(197,245,138,.055);
+}
+
+html {
+  scrollbar-color: #9acb70 #080d09;
+  scrollbar-width: thin;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: .34;
+  background-image:
+    linear-gradient(var(--pixel-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--pixel-grid) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: linear-gradient(to bottom, #000, transparent 88%);
+}
+
+.hero__name {
+  text-shadow: 4px 4px 0 rgba(119,159,84,.12),
+               0 0 38px rgba(185,232,138,.09);
+}
+
+.hero__role,
+.pcard__tag,
+.stat span {
+  font-family: 'Space Grotesk', monospace;
+  letter-spacing: .055em;
+}
+
+.glass,
+.pcard,
+.skill,
+.intro__focus,
+.cta,
+.note {
+  border-radius: 5px !important;
+  border: 1px solid rgba(185,232,138,.24);
+  box-shadow: 5px 5px 0 rgba(104,143,76,.10),
+              0 22px 65px -42px #000;
+}
+
+.btn {
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: .075em;
+  font-family: 'Space Grotesk', monospace;
+  font-size: .78rem;
+  box-shadow: 4px 4px 0 rgba(185,232,138,.16);
+}
+
+.btn:hover {
+  transform: translate(-2px,-2px);
+}
+
+.chips li {
+  border-radius: 2px;
+  font-family: 'Space Grotesk', monospace;
+}
+
+.brand__mark {
+  border-radius: 3px;
+}
+
+.nav__link,
+.nav__pill {
+  border-radius: 3px;
+}
+
+.socials a {
+  border-radius: 4px;
+}
+
+.pcard {
+  position: relative;
+  overflow: hidden;
+}
+
+.pcard::after,
+.skill::after,
+.intro__focus::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .16;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0 5px,
+    rgba(197,245,138,.08) 5px 6px
+  );
+}
+
+.pcard:hover,
+.skill:hover {
+  transform: translateY(-5px);
+  border-color: rgba(197,245,138,.65);
+  box-shadow: 7px 7px 0 rgba(185,232,138,.15),
+              0 28px 70px -42px rgba(185,232,138,.38);
+}
+
+.page-head h1 {
+  text-shadow: 5px 5px 0 rgba(185,232,138,.12);
+}
+
+.scroll-progress {
+  height: 4px;
+  box-shadow: 0 0 12px rgba(185,232,138,.45);
+}
+
+@media(max-width:700px) {
+  body::after {
+    background-size: 22px 22px;
+    opacity: .24;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .reveal-zoom {
+    transform: none !important;
+  }
+}
