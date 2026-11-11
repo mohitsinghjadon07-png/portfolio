@@ -24,7 +24,7 @@ export default function Home() {
 
   return (
     <PageWrap>
-      <section className="hero container">
+      <section id="top" className="hero container">
         <motion.div className="hero__copy" variants={container} initial="hidden" animate="show">
           <motion.h1 variants={item} className="hero__name">
             Mohit Singh Jadon
@@ -53,7 +53,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <section className="container stats-wrap">
+      <section id="status" className="container stats-wrap">
         <Reveal className="stats glass">
           {stats.map((s) => (
             <div key={s.label} className="stat">
@@ -64,7 +64,7 @@ export default function Home() {
         </Reveal>
       </section>
 
-      <section className="section container intro">
+      <section id="story" className="section container intro">
         <Reveal className="intro__text">
           <h2 className="sh__title">Learning to break things so I can build them safely</h2>
           <p>
@@ -87,7 +87,7 @@ export default function Home() {
         </Reveal>
       </section>
 
-      <section className="section container">
+     <section id="projects" className="section container">
         <SectionHeading
           title="Featured projects"
           subtitle="A few things I have built and shipped."
@@ -103,7 +103,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section container">
+      <section id="skills" className="section container">
         <SectionHeading
           title="Skills"
           subtitle="What I work with and what I am learning."
@@ -123,7 +123,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section container">
+     <section id="contact" className="section container">
         <Reveal className="cta glass">
           <h2 className="sh__title">Have an idea, a project or a hackathon team?</h2>
           <p>I am always happy to talk about security, cloud and building useful software.</p>
