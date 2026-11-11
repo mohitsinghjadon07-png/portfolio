@@ -189,3 +189,59 @@
   .rsec, .resume__side { padding: 22px 20px; }
   .footer__inner { flex-direction: column; align-items: flex-start; }
 }
+
+/* ==========================================
+   SCROLL-DRIVEN ZOOM — ALL PAGE SECTIONS
+========================================== */
+
+/* Initial fallback */
+main section,
+main .page-head {
+  transform-origin: center center;
+}
+
+/* Continuous zoom as sections enter and leave viewport */
+@supports (animation-timeline: view()) {
+
+  main section,
+  main .page-head {
+    animation: retro-scroll-zoom linear both;
+    animation-timeline: view();
+    animation-range: entry 0% exit 100%;
+  }
+
+  @keyframes retro-scroll-zoom {
+
+    0% {
+      opacity: 0.55;
+      transform: scale(0.84) translateY(35px);
+      filter: blur(3px);
+    }
+
+    35% {
+      opacity: 1;
+      transform: scale(1);
+      filter: blur(0);
+    }
+
+    65% {
+      opacity: 1;
+      transform: scale(1);
+      filter: blur(0);
+    }
+
+    100% {
+      opacity: 0.78;
+      transform: scale(0.92) translateY(-20px);
+      filter: blur(1px);
+    }
+  }
+}
+
+/* Reduced motion support */
+@media(prefers-reduced-motion: reduce) {
+  main section,
+  main .page-head {
+    animation: none !important;
+  }
+}
